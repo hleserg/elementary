@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		024668712EBFFBE2FFB67AB5 /* libPods-Hackathon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8832817A8F35AE7107F915EF /* libPods-Hackathon.a */; };
+		20F28A7E1D31B0570002B6AB /* ChoiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F28A7D1D31B0570002B6AB /* ChoiseViewController.swift */; };
+		20F28A801D31B38C0002B6AB /* GlavsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F28A7F1D31B38C0002B6AB /* GlavsViewController.swift */; };
 		A934DFC01D313A5700616743 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934DFBF1D313A5700616743 /* Testing.swift */; };
 		A934DFC21D31435A00616743 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A934DFC11D31435A00616743 /* GoogleService-Info.plist */; };
 		A9723A051D31317D0007E4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9723A041D31317D0007E4DB /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		1758AA9A785A334FFCFD7888 /* Pods-Hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		20F28A7D1D31B0570002B6AB /* ChoiseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiseViewController.swift; sourceTree = "<group>"; };
+		20F28A7F1D31B38C0002B6AB /* GlavsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlavsViewController.swift; sourceTree = "<group>"; };
 		66C290B1418E3E484EACE955 /* Pods-Hackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.release.xcconfig"; sourceTree = "<group>"; };
 		8832817A8F35AE7107F915EF /* libPods-Hackathon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hackathon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A934DFBF1D313A5700616743 /* Testing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
@@ -128,7 +132,9 @@
 				A9723A041D31317D0007E4DB /* AppDelegate.swift */,
 				A9723A061D31317D0007E4DB /* ViewController.swift */,
 				A9B9F67D1D319C14006CD565 /* TestViewViewController.swift */,
+				20F28A7D1D31B0570002B6AB /* ChoiseViewController.swift */,
 				A9723A081D31317D0007E4DB /* Main.storyboard */,
+				20F28A7F1D31B38C0002B6AB /* GlavsViewController.swift */,
 				A9B9F6811D31A80B006CD565 /* ResultViewController.swift */,
 				A9723A0E1D31317E0007E4DB /* Assets.xcassets */,
 				A9723A101D31317E0007E4DB /* LaunchScreen.storyboard */,
@@ -355,11 +361,13 @@
 			files = (
 				A9B9F6801D319E8C006CD565 /* global.swift in Sources */,
 				A9723A071D31317D0007E4DB /* ViewController.swift in Sources */,
+				20F28A801D31B38C0002B6AB /* GlavsViewController.swift in Sources */,
 				A9B9F6821D31A80B006CD565 /* ResultViewController.swift in Sources */,
 				A9723A051D31317D0007E4DB /* AppDelegate.swift in Sources */,
 				A934DFC01D313A5700616743 /* Testing.swift in Sources */,
 				A9723A0D1D31317E0007E4DB /* Hackathon.xcdatamodeld in Sources */,
 				A9B9F67E1D319C14006CD565 /* TestViewViewController.swift in Sources */,
+				20F28A7E1D31B0570002B6AB /* ChoiseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
