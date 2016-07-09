@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>901251166423-pee8hibkn2jd6gjej12v7maopl7f9138.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.901251166423-pee8hibkn2jd6gjej12v7maopl7f9138</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAmqXOLyUe252SdRnPxL8lCIn2mgFyqejw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>901251166423</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SKh.Hackathon</string>
+	<key>PROJECT_ID</key>
+	<string>hackathonkarimovs</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackathonkarimovs.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:901251166423:ios:3b8b2be4543bd622</string>
+	<key>DATABASE_URL</key>
+	<string>https://hackathonkarimovs.firebaseio.com</string>
+</dict>
+</plist>
