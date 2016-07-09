@@ -33,10 +33,16 @@ class TestViewViewController: UIViewController {
     @IBOutlet var answer4: UIButton!
     
     var testing:Testing!
+    var chapter:String?
+    var discipline:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testing = Testing(discipline: discipline, chapter: chapter)
+        if chapter != nil {
+            testing = Testing(discipline: discipline, chapter: chapter!)
+        }else{
+            testing = Testing(discipline: discipline)
+        }
         getNextQuestion()
     }
 
@@ -69,6 +75,8 @@ class TestViewViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? ResultViewController{
             destinationViewController.result = testing.result
+            destinationViewController.discipline = discipline
+            destinationViewController.chapter = chapter
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

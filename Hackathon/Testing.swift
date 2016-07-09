@@ -24,33 +24,73 @@ class Testing {
     private var questions: [Question] = []
     private var questionCount = -1
     init(discipline: String, chapter: String){
-        var maxIndex:UInt32?
-        let questionsRef = FIRDatabase.database().reference().child("disciplins").child(discipline).child("glavs").child(chapter).child("questons")
+        let questionsRef = FIRDatabase.database().reference().child("disciplins").child(discipline).child("chapters").child(chapter).child("questons")
         //incrementStarsForRef(postRef)
         questionsRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            maxIndex = UInt32(snapshot.childrenCount)
-            for _ in 0...10 {
-                var strQuestionIndex:String! = " "
-                var questionsSet = Set<String>()
-                repeat {
-                    strQuestionIndex = String(arc4random_uniform(maxIndex!))
-                    let questionSnapshot = snapshot.childSnapshotForPath(strQuestionIndex)
-                    let text = questionSnapshot.value!["text"] as! String
-                    let answer1 = questionSnapshot.value!["answer1"] as! String
-                    let answer2 = questionSnapshot.value!["answer2"] as! String
-                    let answer3 = questionSnapshot.value!["answer3"] as! String
-                    let answer4 = questionSnapshot.value!["answer4"] as! String
-                    let rightAnswer = questionSnapshot.value!["rightAnswer"] as! Int
-                    let question = Question(text: text, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, rightAnswer: rightAnswer)
-                    self.questions.append(question)
-                    questionsSet.insert(strQuestionIndex)
-                    
-                } while questionsSet.contains(strQuestionIndex)
+            self.getQuestionsFromQuestionsSnapshot(snapshot)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    init(discipline: String, chapter: String, FirBaseRef:FIRDatabaseReference){
+        let questionsRef = FirBaseRef.child("disciplins").child(discipline).child("chapters").child(chapter).child("questons")
+        questionsRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            self.getQuestionsFromQuestionsSnapshot(snapshot)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    init (discipline:String){
+        let chaptersRef = FIRDatabase.database().reference().child("disciplins").child(discipline).child("chapters")
+        chaptersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            var chaptersKeys:[String] = []
+            for chapterRef in snapshot.children {
+                chaptersKeys.append(chapterRef.key)
             }
-            
+            let randomChapterIndex = Int(arc4random_uniform(UInt32(chaptersKeys.count)))
+            let randomChapter = chaptersKeys[randomChapterIndex]
+            let questionsSnapshot = snapshot.childSnapshotForPath("\(randomChapter) questons")
+            self.getQuestionsFromQuestionsSnapshot(questionsSnapshot)
             
         }) { (error) in
             print(error.localizedDescription)
+        }
+    }
+    init (discipline:String, FirBaseRef:FIRDatabaseReference){
+        let chaptersRef = FirBaseRef.child("disciplins").child(discipline).child("chapters")
+        chaptersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            var chaptersKeys:[String] = []
+            for chapterRef in snapshot.children {
+                chaptersKeys.append(chapterRef.key)
+            }
+            let randomChapterIndex = Int(arc4random_uniform(UInt32(chaptersKeys.count)))
+            let randomChapter = chaptersKeys[randomChapterIndex]
+            let questionsSnapshot = snapshot.childSnapshotForPath("\(randomChapter) questons")
+            self.getQuestionsFromQuestionsSnapshot(questionsSnapshot)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    private func getQuestionsFromQuestionsSnapshot(questionsSnapshot:FIRDataSnapshot){
+        let maxIndex = UInt32(questionsSnapshot.childrenCount)
+        for _ in 0...10 {
+            var strQuestionIndex:String
+            var questionsSet = Set<String>()
+            repeat {
+                strQuestionIndex = String(arc4random_uniform(maxIndex))
+                let questionSnapshot = questionsSnapshot.childSnapshotForPath(strQuestionIndex)
+                let text = questionSnapshot.value!["text"] as! String
+                let answer1 = questionSnapshot.value!["answer1"] as! String
+                let answer2 = questionSnapshot.value!["answer2"] as! String
+                let answer3 = questionSnapshot.value!["answer3"] as! String
+                let answer4 = questionSnapshot.value!["answer4"] as! String
+                let rightAnswer = questionSnapshot.value!["rightAnswer"] as! Int
+                let question = Question(text: text, answer1: answer1, answer2: answer2, answer3: answer3, answer4: answer4, rightAnswer: rightAnswer)
+                self.questions.append(question)
+                questionsSet.insert(strQuestionIndex)
+                
+            } while questionsSet.contains(strQuestionIndex)
         }
     }
     func getNextQuestion() -> Question{

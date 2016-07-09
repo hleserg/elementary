@@ -7,5 +7,3 @@
 //
 
 import Foundation
-var discipline:String = ""
-var chapter:String = ""

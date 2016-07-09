@@ -11,6 +11,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
     var result:Int!
-    
+    var discipline:String!
+    var chapter:String?
     
 }
